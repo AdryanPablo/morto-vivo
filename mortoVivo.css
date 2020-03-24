@@ -1,0 +1,129 @@
+* {
+    font-family: Chilanka;
+    font-size: 20pt;
+}
+
+/* Header */
+
+header#título {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 200px;
+
+    background-color: #c33;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
+
+    margin: 10px;
+    border-radius: 10px;
+}
+
+header#título h1 {
+    font-size: 100pt;
+    color: #fff;
+    font-weight: normal;
+}
+
+/* Nav */
+
+nav#painel {
+    float: left;
+    width: 350px;
+
+    margin: 10px;
+    padding: 10px;
+
+    background-color: #ccc;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
+}
+
+nav#painel label {
+    margin-right: 10px;
+}
+
+input#tempoDeEspera {
+    width: 100px;
+    height: 40px;
+
+    margin: 0px;
+    padding: 0px;
+
+    border: solid 2px #000;
+    border-radius: 5px;
+
+    text-align: center;
+}
+
+button.botão {
+    width: 150px;
+    height: 40px;
+
+    margin: 10px;
+
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+    background-color: #c33;
+    color: #fff;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7)
+}
+
+button.botão:hover {
+    background-color: #33c;
+}
+
+/* Section */
+
+section#mortoVivo {
+    margin: auto;
+
+    width: 400px;
+    height: 400px;
+}
+
+span#texto {
+    display: block;
+
+    font-size: 100pt;
+    text-align: center;
+}
+
+div#boneco {
+    display: flex;
+    justify-content: center;
+
+    visibility: hidden;
+}
+
+div#cabeça, div#olhos, div#nariz, div#boca {
+    position: absolute;
+}
+
+div#cabeça {
+    width: 150px;
+    height: 150px;
+
+    border: solid 2px #000;
+    border-radius: 50%;
+}
+
+div#olhos {
+    margin-top: 25px;
+    font-size: 30pt;
+}
+
+div#nariz {
+    margin-top: 70px;
+    font-size: 30pt;
+}
+
+div#boca {
+    margin-top: 80px;
+    margin-left: -4px;
+    font-size: 50pt;
+    transform: rotate(90deg);
+}

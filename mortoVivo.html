@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Morto Vivo</title>
+    <link rel = 'stylesheet' href = 'mortoVivo.css'>
+    <script src = 'mortoVivo.js'></script>
+
+</head>
+
+<body>
+
+    <header id = 'título'>
+        
+        <h1>Morto Vivo</h1>
+    
+    </header>
+
+    <nav id = 'painel'>
+
+        <label for = 'tempoDeEspera'>Tempo de Espera</label>
+        <input type = 'number' id = 'tempoDeEspera' min = '1' max = '5' value = '1'><br>
+        <button class = 'botão' id = 'acionar' onclick = 'iniciar()'>Acionar</button>
+        <button class = 'botão' id = 'parar' onclick = 'parar()'>Parar</button>
+
+    </nav>
+
+    <section id = 'mortoVivo'>
+
+        <span id = 'texto'></span>
+        <audio id = 'som'></audio>
+
+        <div id = 'boneco'>
+
+            <div id = 'cabeça'></div>
+            <div id = 'olhos'>O O</div>
+            <div id = 'nariz'>*</div>
+            <div id = 'boca'>)</div>
+
+        </div>
+
+    </section>
+    
+</body>
+</html>
