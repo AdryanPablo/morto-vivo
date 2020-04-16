@@ -1,2 +1,2 @@
-# Morto-Vivo
-Brincadeira "Morto Vivo"
+# Morto Vivo
+Brincadeira "Morto Vivo".
