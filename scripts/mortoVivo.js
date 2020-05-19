@@ -48,7 +48,7 @@ function mortoVivo () {
             olhos.innerHTML = 'X X'
             boca.innerHTML = '('
 
-            audio.setAttribute('src', './morto.mp3')
+            audio.setAttribute('src', '../audios/morto.mp3')
             audio.play()
 
             break
@@ -60,7 +60,7 @@ function mortoVivo () {
             olhos.innerHTML = 'O O'
             boca.innerHTML = ')'
 
-            audio.setAttribute('src', './vivo.mp3')
+            audio.setAttribute('src', '../audios/vivo.mp3')
             audio.play()
 
             break
