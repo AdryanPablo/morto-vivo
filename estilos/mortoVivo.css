@@ -5,7 +5,7 @@
 
 /* Header */
 
-header#título {
+header#titulo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ header#título {
     border-radius: 10px;
 }
 
-header#título h1 {
+header#titulo h1 {
     font-size: 100pt;
     color: #fff;
     font-weight: normal;
@@ -56,7 +56,7 @@ input#tempoDeEspera {
     text-align: center;
 }
 
-button.botão {
+button.botao {
     width: 150px;
     height: 40px;
 
@@ -72,7 +72,7 @@ button.botão {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7)
 }
 
-button.botão:hover {
+button.botao:hover {
     background-color: #33c;
 }
 

@@ -1,19 +1,20 @@
 var ciclo
 var tempoDeEspera
-var texto
+var acao
 var boneco
 var olhos
 var boca
 var audio
 
-function iniciar () {
+function iniciar() {
 
     tempoDeEspera = document.getElementById('tempoDeEspera').value
-    texto = document.querySelector('span#texto')
+    acao = document.querySelector('span#acao')
+    audio = document.getElementById('som')
+
     boneco = document.getElementById('boneco')
     olhos = document.getElementById('olhos')
     boca = document.getElementById('boca')
-    audio = document.getElementById('som')
 
     if (tempoDeEspera == '' || tempoDeEspera <= 0 || tempoDeEspera > 5) {
 
@@ -21,29 +22,29 @@ function iniciar () {
 
     }
 
-    tempoDeEspera = tempoDeEspera * 1000
+    tempoDeEspera *= 1000
 
     ciclo = setInterval(mortoVivo, tempoDeEspera)
 
 }
 
-function parar () {
+function pararJogo() {
 
     clearInterval(ciclo)
     audio.pause()
 
 }
 
-function mortoVivo () {
+function mortoVivo() {
 
-    let númeroAleatório = sortearNúmero(1)
-    let estado
+    let numeroAleatorio = sortearNumero(1)
+    let mortoOuVivo
 
-    switch (númeroAleatório) {
+    switch (numeroAleatorio) {
 
         case 0:
 
-            estado = 'Morto'
+            mortoOuVivo = 'Morto'
 
             olhos.innerHTML = 'X X'
             boca.innerHTML = '('
@@ -55,7 +56,7 @@ function mortoVivo () {
 
         case 1:
 
-            estado = 'Vivo'
+            mortoOuVivo = 'Vivo'
 
             olhos.innerHTML = 'O O'
             boca.innerHTML = ')'
@@ -67,12 +68,12 @@ function mortoVivo () {
 
     }
 
-    texto.innerHTML = estado
+    acao.innerHTML = mortoOuVivo
     boneco.style.visibility = 'visible'
 
 }
 
-function sortearNúmero (quantidade) {
+function sortearNumero(quantidade) {
 
     return Math.round(Math.random() * quantidade)
 
