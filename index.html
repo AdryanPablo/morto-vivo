@@ -6,43 +6,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Adryan Pablo">
-
     <title>Morto Vivo</title>
+
     <link rel="stylesheet" href="estilos/mortoVivo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
     <script src="scripts/mortoVivo.js"></script>
 
 </head>
 
 <body>
 
-    <header id="titulo">
+    <header id="cabecalho">
         
-        <h1>Morto Vivo</h1>
+        <h1 id="titulo">Morto Vivo</h1>
+
+        <nav id="painel">
+
+            <label for="ampulheta">Tempo de Espera:</label>
+            <input type="number" id="ampulheta" min="1" max="3" value="1"><br>
+            <button class="botao" id="acionar" onclick="iniciarJogo()">Acionar</button>
+            <button class="botao" id="parar" onclick="pararJogo()">Parar</button>
+    
+        </nav>
     
     </header>
-
-    <nav id="painel">
-
-        <label for="tempoDeEspera">Tempo de Espera</label>
-        <input type="number" id="tempoDeEspera" min="1" max="5" value="1"><br>
-        <button class="botao" id="acionar" onclick="iniciar()">Acionar</button>
-        <button class="botao" id="parar" onclick="pararJogo()">Parar</button>
-
-    </nav>
 
     <section id="mortoVivo">
 
         <span id="acao"></span>
         <audio id="som"></audio>
-
-        <div id="boneco">
-
-            <div id="cabeça"></div>
-            <div id="olhos">O O</div>
-            <div id="nariz">*</div>
-            <div id="boca">)</div>
-
-        </div>
+        <i class="" id="boneco"></i>
 
     </section>
     

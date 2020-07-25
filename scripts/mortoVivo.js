@@ -1,80 +1,112 @@
+var acao = { 'elementoHTML': '', 'mensagem': '' }
+var audio = { 'elementoHTML': '', 'src': '' }
+var ampulheta = { 'elementoHTML': '', 'tempo': '' }
+var boneco = { 'elementoHTML': '', 'estadoVital': '' }
+
 var ciclo
-var tempoDeEspera
-var acao
-var boneco
-var olhos
-var boca
-var audio
 
-function iniciar() {
+window.addEventListener('load', pegarElementosHTML)
 
-    tempoDeEspera = document.getElementById('tempoDeEspera').value
-    acao = document.querySelector('span#acao')
-    audio = document.getElementById('som')
+function pegarElementosHTML() {
 
-    boneco = document.getElementById('boneco')
-    olhos = document.getElementById('olhos')
-    boca = document.getElementById('boca')
+    acao.elementoHTML = document.getElementById('acao')
+    audio.elementoHTML = document.getElementById('som')
+    ampulheta.elementoHTML = document.getElementById('ampulheta')
+    boneco.elementoHTML = document.getElementById('boneco')
 
-    if (tempoDeEspera == '' || tempoDeEspera <= 0 || tempoDeEspera > 5) {
+}
 
-        tempoDeEspera = 1
+function iniciarJogo() {
+
+    ampulheta.tempo = configurarTempoDaAmpulheta()
+    ciclo = setInterval(mortoVivo, ampulheta.tempo)
+
+}
+
+function configurarTempoDaAmpulheta() {
+
+    let tempo = ampulheta.elementoHTML.value
+
+    if (tempo == '' || tempo <= 0 || tempo > 3) {
+
+        return 1000
+
+    } else {
+
+        return (tempo * 1000)
 
     }
-
-    tempoDeEspera *= 1000
-
-    ciclo = setInterval(mortoVivo, tempoDeEspera)
 
 }
 
 function pararJogo() {
 
     clearInterval(ciclo)
-    audio.pause()
+    pararAudio()
 
 }
 
 function mortoVivo() {
 
     let numeroAleatorio = sortearNumero(1)
-    let mortoOuVivo
 
     switch (numeroAleatorio) {
 
         case 0:
 
-            mortoOuVivo = 'Morto'
-
-            olhos.innerHTML = 'X X'
-            boca.innerHTML = '('
-
-            audio.setAttribute('src', './morto.mp3')
-            audio.play()
-
+            acao.mensagem = 'Morto'
+            audio.src = '../audios/morto.mp3'
+            boneco.estadoVital = 'fas fa-dizzy'
             break
 
         case 1:
 
-            mortoOuVivo = 'Vivo'
-
-            olhos.innerHTML = 'O O'
-            boca.innerHTML = ')'
-
-            audio.setAttribute('src', './vivo.mp3')
-            audio.play()
-
+            acao.mensagem = 'Vivo'
+            audio.src = '../audios/vivo.mp3'
+            boneco.estadoVital = 'fas fa-smile'
             break
 
     }
 
-    acao.innerHTML = mortoOuVivo
-    boneco.style.visibility = 'visible'
+    mostrarMensagem()
+    atribuirCaminhoDoAudio()
+    trocarRostoDoBoneco()
 
 }
 
-function sortearNumero(quantidade) {
+function sortearNumero(limite) {
 
-    return Math.round(Math.random() * quantidade)
+    return Math.round(Math.random() * limite)
+
+}
+
+function mostrarMensagem(mensagem) {
+
+    acao.elementoHTML.innerHTML = acao.mensagem
+
+}
+
+function atribuirCaminhoDoAudio() {
+
+    audio.elementoHTML.setAttribute('src', audio.src)
+    tocarAudio()
+
+}
+
+function tocarAudio() {
+
+    audio.elementoHTML.play()
+
+}
+
+function pararAudio() {
+
+    audio.elementoHTML.pause()
+
+}
+
+function trocarRostoDoBoneco() {
+
+    boneco.elementoHTML.setAttribute('class', boneco.estadoVital)
 
 }

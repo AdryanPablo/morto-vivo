@@ -1,75 +1,91 @@
+@font-face {
+    font-family: 'Chilanka';
+    src: url('./font/Chilanka-Regular.ttf');
+}
+
+/* Reset */
+
 * {
-    font-family: Chilanka;
-    font-size: 20pt;
+    font-family: 'Chilanka';
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1vw;   
 }
 
 /* Header */
 
-header#titulo {
+#cabecalho {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 200px;
+    width: 95%;
+    height: 15em;
 
     background-color: #c33;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
 
-    margin: 10px;
-    border-radius: 10px;
+    margin: 2%;
+    border-radius: 1em;
 }
 
-header#titulo h1 {
-    font-size: 100pt;
+#titulo {
+    width: 58%;
+    text-align: center;
+    font-size: 8em;
     color: #fff;
     font-weight: normal;
 }
 
-/* Nav */
+/* Painel */
 
 nav#painel {
-    float: left;
-    width: 350px;
+    float: right;
+    width: 40%;
+    height: 90%;
 
-    margin: 10px;
-    padding: 10px;
+    padding: 2%;
 
     background-color: #ccc;
-    border-radius: 5px;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
+    border-radius: 1em;
 }
 
-nav#painel label {
-    margin-right: 10px;
+#painel label {
+    width: 40%;
+    height: 30%;
+    margin-right: 1%;
+    font-size: 2em;
 }
 
-input#tempoDeEspera {
-    width: 100px;
-    height: 40px;
-
-    margin: 0px;
-    padding: 0px;
+#ampulheta {
+    width: 40%;
+    height: 30%;
 
     border: solid 2px #000;
-    border-radius: 5px;
+    border-radius: 0.5em;
 
     text-align: center;
+    font-size: 2em;
 }
 
-button.botao {
-    width: 150px;
-    height: 40px;
+.botao {
+    width: 100%;
+    height: 30%;
 
-    margin: 10px;
-
-    border: none;
-    outline: none;
-    border-radius: 5px;
+    margin-top: 2%;
 
     background-color: #c33;
-    color: #fff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    border-radius: 0.5em;
 
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7)
+    font-size: 2em;
+    color: #fff;
 }
 
 button.botao:hover {
@@ -78,52 +94,20 @@ button.botao:hover {
 
 /* Section */
 
-section#mortoVivo {
+#mortoVivo {
     margin: auto;
-
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: 40em;
 }
 
-span#texto {
+#acao {
     display: block;
-
-    font-size: 100pt;
     text-align: center;
+    font-size: 10em;
 }
 
-div#boneco {
-    display: flex;
-    justify-content: center;
-
-    visibility: hidden;
-}
-
-div#cabeça, div#olhos, div#nariz, div#boca {
-    position: absolute;
-}
-
-div#cabeça {
-    width: 150px;
-    height: 150px;
-
-    border: solid 2px #000;
-    border-radius: 50%;
-}
-
-div#olhos {
-    margin-top: 25px;
-    font-size: 30pt;
-}
-
-div#nariz {
-    margin-top: 70px;
-    font-size: 30pt;
-}
-
-div#boca {
-    margin-top: 80px;
-    margin-left: -4px;
-    font-size: 50pt;
-    transform: rotate(90deg);
+#boneco {
+    display: block;
+    text-align: center;
+    font-size: 10em;
 }
