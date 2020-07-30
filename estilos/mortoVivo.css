@@ -95,6 +95,7 @@ html {
 #acao {
     display: block;
     text-align: center;
+    text-transform: capitalize;
     font-size: 20em;
 }
 

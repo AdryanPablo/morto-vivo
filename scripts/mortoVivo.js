@@ -1,5 +1,5 @@
 var acao = { 'elementoHTML': '', 'mensagem': '' }
-var audio = { 'elementoHTML': '', 'src': '' }
+var audio = { 'elementoHTML': '', 'vivo': '', 'morto': '' }
 var ampulheta = { 'elementoHTML': '', 'tempo': '' }
 var boneco = { 'elementoHTML': '', 'estadoVital': '' }
 
@@ -13,6 +13,15 @@ function pegarElementosHTML() {
     audio.elementoHTML = document.getElementById('som')
     ampulheta.elementoHTML = document.getElementById('ampulheta')
     boneco.elementoHTML = document.getElementById('boneco')
+
+    carregarAudios()
+
+}
+
+function carregarAudios() {
+
+    audio.vivo = '../audios/vivo.mp3'
+    audio.morto = '../audios/morto.mp3'
 
 }
 
@@ -54,15 +63,13 @@ function mortoVivo() {
 
         case 0:
 
-            acao.mensagem = 'Morto'
-            audio.src = '../audios/morto.mp3'
+            acao.mensagem = 'morto'
             boneco.estadoVital = 'fas fa-dizzy'
             break
 
         case 1:
 
-            acao.mensagem = 'Vivo'
-            audio.src = '../audios/vivo.mp3'
+            acao.mensagem = 'vivo'
             boneco.estadoVital = 'fas fa-smile'
             break
 
@@ -88,7 +95,8 @@ function mostrarMensagem(mensagem) {
 
 function atribuirCaminhoDoAudio() {
 
-    audio.elementoHTML.setAttribute('src', audio.src)
+    audio.elementoHTML.setAttribute('src', audio[acao.mensagem])
+
     tocarAudio()
 
 }
