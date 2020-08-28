@@ -1,27 +1,30 @@
-var acao = { 'elementoHTML': '', 'mensagem': '' }
-var audio = { 'elementoHTML': '', 'vivo': '', 'morto': '' }
-var ampulheta = { 'elementoHTML': '', 'tempo': '' }
-var boneco = { 'elementoHTML': '', 'estadoVital': '' }
+import acao, { mostrarMensagem } from './mensagem.js'
+import audio, { carregarAudios, atribuirCaminhoDoAudio, tocarAudio, pararAudio } from './audios.js'
+import ampulheta, { configurarTempoDaAmpulheta } from './ampulheta.js'
+import boneco, { trocarRostoDoBoneco } from './boneco.js'
+import botoes, { adicionarEvento } from './botoes.js'
+import sortearNumero from './sorteio.js'
+import pegarElemento from './elementos.js'
 
 var ciclo
 
-window.addEventListener('load', pegarElementosHTML)
+configurar()
 
-function pegarElementosHTML() {
+window.addEventListener
 
-    acao.elementoHTML = document.getElementById('acao')
-    audio.elementoHTML = document.getElementById('som')
-    ampulheta.elementoHTML = document.getElementById('ampulheta')
-    boneco.elementoHTML = document.getElementById('boneco')
+function configurar() {
+
+    pegarElemento(acao.elementoHTML, 'acao')
+    pegarElemento(audio.elementoHTML, 'som')
+    pegarElemento(ampulheta.elementoHTML, 'ampulheta')
+    pegarElemento(boneco.elementoHTML, 'boneco')
+    pegarElemento(botoes.acionar, 'acionar')
+    pegarElemento(botoes.parar, 'parar')
 
     carregarAudios()
 
-}
-
-function carregarAudios() {
-
-    audio.vivo = '../audios/vivo.mp3'
-    audio.morto = '../audios/morto.mp3'
+    adicionarEvento(acionar, iniciarJogo)
+    adicionarEvento(parar, pararJogo)
 
 }
 
@@ -29,22 +32,6 @@ function iniciarJogo() {
 
     ampulheta.tempo = configurarTempoDaAmpulheta()
     ciclo = setInterval(mortoVivo, ampulheta.tempo)
-
-}
-
-function configurarTempoDaAmpulheta() {
-
-    let tempo = ampulheta.elementoHTML.value
-
-    if (tempo == '' || tempo <= 0 || tempo > 3) {
-
-        return 1000
-
-    } else {
-
-        return (tempo * 1000)
-
-    }
 
 }
 
@@ -77,44 +64,7 @@ function mortoVivo() {
 
     mostrarMensagem()
     atribuirCaminhoDoAudio()
-    trocarRostoDoBoneco()
-
-}
-
-function sortearNumero(limite) {
-
-    return Math.round(Math.random() * limite)
-
-}
-
-function mostrarMensagem(mensagem) {
-
-    acao.elementoHTML.innerHTML = acao.mensagem
-
-}
-
-function atribuirCaminhoDoAudio() {
-
-    audio.elementoHTML.setAttribute('src', audio[acao.mensagem])
-
     tocarAudio()
-
-}
-
-function tocarAudio() {
-
-    audio.elementoHTML.play()
-
-}
-
-function pararAudio() {
-
-    audio.elementoHTML.pause()
-
-}
-
-function trocarRostoDoBoneco() {
-
-    boneco.elementoHTML.setAttribute('class', boneco.estadoVital)
+    trocarRostoDoBoneco()
 
 }
