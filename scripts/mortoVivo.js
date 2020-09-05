@@ -1,27 +1,25 @@
-import acao, { mostrarMensagem } from './mensagem.js'
-import audio, { carregarAudios, atribuirCaminhoDoAudio, tocarAudio, pararAudio } from './audios.js'
-import ampulheta, { configurarTempoDaAmpulheta } from './ampulheta.js'
-import boneco, { trocarRostoDoBoneco } from './boneco.js'
-import botoes, { adicionarEvento } from './botoes.js'
-import sortearNumero from './sorteio.js'
-import pegarElemento from './elementos.js'
+import acao, { mostrarMensagem } from './modulos/mensagem.js'
+import audio, { atribuirCaminhoDoAudio, tocarAudio, pararAudio } from './modulos/audios.js'
+import ampulheta, { configurarTempoDaAmpulheta } from './modulos/ampulheta.js'
+import boneco, { trocarRostoDoBoneco } from './modulos/boneco.js'
+import botoes, { adicionarEvento } from './modulos/botoes.js'
+import sortearNumero from './modulos/sorteio.js'
 
-var ciclo
+var ciclo, estado
 
-configurar()
-
-window.addEventListener
+window.addEventListener('load', configurar)
 
 function configurar() {
 
-    pegarElemento(acao.elementoHTML, 'acao')
-    pegarElemento(audio.elementoHTML, 'som')
-    pegarElemento(ampulheta.elementoHTML, 'ampulheta')
-    pegarElemento(boneco.elementoHTML, 'boneco')
-    pegarElemento(botoes.acionar, 'acionar')
-    pegarElemento(botoes.parar, 'parar')
+    acao.elementoHTML = document.getElementById('acao')
+    audio.elementoHTML = document.getElementById('som')
+    ampulheta.elementoHTML = document.getElementById('ampulheta')
+    boneco.elementoHTML = document.getElementById('boneco')
+    botoes.acionar = document.getElementById('acionar')
+    botoes.parar = document.getElementById('parar')
 
-    carregarAudios()
+    audio.vivo = './audios/vivo.mp3'
+    audio.morto = './audios/morto.mp3'
 
     adicionarEvento(acionar, iniciarJogo)
     adicionarEvento(parar, pararJogo)
@@ -50,21 +48,19 @@ function mortoVivo() {
 
         case 0:
 
-            acao.mensagem = 'morto'
-            boneco.estadoVital = 'fas fa-dizzy'
+            estado = 'morto'
             break
 
         case 1:
 
-            acao.mensagem = 'vivo'
-            boneco.estadoVital = 'fas fa-smile'
+            estado = 'vivo'
             break
 
     }
 
-    mostrarMensagem()
-    atribuirCaminhoDoAudio()
+    mostrarMensagem(estado)
+    atribuirCaminhoDoAudio(estado)
     tocarAudio()
-    trocarRostoDoBoneco()
+    trocarRostoDoBoneco(estado)
 
 }
