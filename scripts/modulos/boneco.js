@@ -2,8 +2,6 @@ const boneco = { 'elementoHTML': '', 'vivo': 'fas fa-smile', 'morto': 'fas fa-di
 
 export function trocarRostoDoBoneco(estado) {
 
-    console.log(estado);
-
     boneco.elementoHTML.setAttribute('class', boneco[estado])
 
 }
